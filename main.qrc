@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons/images">
+        <file>ship_roll.svg</file>
+        <file>ship_pitch.svg</file>
+    </qresource>
+</RCC>

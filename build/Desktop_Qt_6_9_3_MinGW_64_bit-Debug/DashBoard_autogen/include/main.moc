@@ -1,0 +1,238 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'main.cpp'
+**
+** Created by: The Qt Meta Object Compiler version 69 (Qt 6.9.3)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <QtCore/qmetatype.h>
+
+#include <QtCore/qtmochelpers.h>
+
+#include <memory>
+
+
+#include <QtCore/qxptype_traits.h>
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'main.cpp' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 69
+#error "This file was generated using the moc from 6.9.3. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+QT_WARNING_DISABLE_GCC("-Wuseless-cast")
+namespace {
+struct qt_meta_tag_ZN16ControllerBridgeE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto ControllerBridge::qt_create_metaobjectdata<qt_meta_tag_ZN16ControllerBridgeE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "ControllerBridge",
+        "onRudderUpdated",
+        "",
+        "RudderState",
+        "state",
+        "onControllerStatusChanged",
+        "connected",
+        "onMqttStateChanged"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'onRudderUpdated'
+        QtMocHelpers::SlotData<void(const RudderState &)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'onControllerStatusChanged'
+        QtMocHelpers::SlotData<void(bool)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 6 },
+        }}),
+        // Slot 'onMqttStateChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 4 },
+        }}),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<ControllerBridge, qt_meta_tag_ZN16ControllerBridgeE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject ControllerBridge::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16ControllerBridgeE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16ControllerBridgeE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16ControllerBridgeE_t>.metaTypes,
+    nullptr
+} };
+
+void ControllerBridge::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<ControllerBridge *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->onRudderUpdated((*reinterpret_cast< std::add_pointer_t<RudderState>>(_a[1]))); break;
+        case 1: _t->onControllerStatusChanged((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 2: _t->onMqttStateChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *ControllerBridge::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *ControllerBridge::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16ControllerBridgeE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int ControllerBridge::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
+    return _id;
+}
+namespace {
+struct qt_meta_tag_ZN16SensorDataBridgeE_t {};
+} // unnamed namespace
+
+template <> constexpr inline auto SensorDataBridge::qt_create_metaobjectdata<qt_meta_tag_ZN16SensorDataBridgeE_t>()
+{
+    namespace QMC = QtMocConstants;
+    QtMocHelpers::StringRefStorage qt_stringData {
+        "SensorDataBridge",
+        "onMqttStateChanged",
+        "",
+        "state",
+        "onImuDataReceived",
+        "data",
+        "onGpsDataReceived",
+        "onSpeedDataReceived",
+        "onEnvironmentDataReceived",
+        "onSensorDataReceived",
+        "sensorType",
+        "updateMainWindow"
+    };
+
+    QtMocHelpers::UintData qt_methods {
+        // Slot 'onMqttStateChanged'
+        QtMocHelpers::SlotData<void(const QString &)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 3 },
+        }}),
+        // Slot 'onImuDataReceived'
+        QtMocHelpers::SlotData<void(const QJsonObject &)>(4, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QJsonObject, 5 },
+        }}),
+        // Slot 'onGpsDataReceived'
+        QtMocHelpers::SlotData<void(const QJsonObject &)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QJsonObject, 5 },
+        }}),
+        // Slot 'onSpeedDataReceived'
+        QtMocHelpers::SlotData<void(const QJsonObject &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QJsonObject, 5 },
+        }}),
+        // Slot 'onEnvironmentDataReceived'
+        QtMocHelpers::SlotData<void(const QJsonObject &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QJsonObject, 5 },
+        }}),
+        // Slot 'onSensorDataReceived'
+        QtMocHelpers::SlotData<void(const QString &, const QJsonObject &)>(9, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 10 }, { QMetaType::QJsonObject, 5 },
+        }}),
+        // Slot 'updateMainWindow'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+    };
+    QtMocHelpers::UintData qt_properties {
+    };
+    QtMocHelpers::UintData qt_enums {
+    };
+    return QtMocHelpers::metaObjectData<SensorDataBridge, qt_meta_tag_ZN16SensorDataBridgeE_t>(QMC::MetaObjectFlag{}, qt_stringData,
+            qt_methods, qt_properties, qt_enums);
+}
+Q_CONSTINIT const QMetaObject SensorDataBridge::staticMetaObject = { {
+    QMetaObject::SuperData::link<QObject::staticMetaObject>(),
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16SensorDataBridgeE_t>.stringdata,
+    qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16SensorDataBridgeE_t>.data,
+    qt_static_metacall,
+    nullptr,
+    qt_staticMetaObjectRelocatingContent<qt_meta_tag_ZN16SensorDataBridgeE_t>.metaTypes,
+    nullptr
+} };
+
+void SensorDataBridge::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    auto *_t = static_cast<SensorDataBridge *>(_o);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->onMqttStateChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 1: _t->onImuDataReceived((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 2: _t->onGpsDataReceived((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 3: _t->onSpeedDataReceived((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 4: _t->onEnvironmentDataReceived((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 5: _t->onSensorDataReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
+        case 6: _t->updateMainWindow(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObject *SensorDataBridge::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *SensorDataBridge::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_staticMetaObjectStaticContent<qt_meta_tag_ZN16SensorDataBridgeE_t>.strings))
+        return static_cast<void*>(this);
+    return QObject::qt_metacast(_clname);
+}
+
+int SensorDataBridge::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 7)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 7;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 7)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 7;
+    }
+    return _id;
+}
+QT_WARNING_POP

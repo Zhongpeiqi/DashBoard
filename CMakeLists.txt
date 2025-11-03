@@ -1,0 +1,91 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(DashBoard VERSION 0.1 LANGUAGES CXX)
+
+# Qt 自动功能
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+# C++17
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 查找 Qt
+# find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Mqtt Network Widgets Mqtt)
+find_package(Qt6 REQUIRED COMPONENTS Core Mqtt Network Widgets Svg)
+find_package(SDL2 REQUIRED)
+
+# 包含头文件路径（让 #include <wind/wind_rose_widget.h> 可用）
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+# === 正确列出源文件 ===
+set(PROJECT_SOURCES
+    src/main.cpp
+    src/wind_roll/wind_rose_widget.cpp
+    include/wind_roll/wind_rose_widget.h
+)
+
+# === 可执行文件 ===
+qt_add_executable(DashBoard
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+    include/wind_roll/wind_gauge.h
+    src/wind_roll/wind_gauge.cpp
+    include/nav_info/nav_info_widget.h
+    src/nav_info/nav_info_widget.cpp
+    include/wind_roll/roll_gauge_widget.h
+    src/wind_roll/roll_gauge_widget.cpp
+    include/nav_info/pitch_gauge_widget.h
+    src/nav_info/pitch_gauge_widget.cpp
+    include/engine/engine_bar_widget.h
+    src/engine/engine_bar_widget.cpp
+    include/engine/rudder_gauge_widget.h
+    src/engine/rudder_gauge_widget.cpp
+    include/engine/port_engine_container.h
+    src/engine/port_engine_container.cpp
+    include/engine/stbd_engine_container.h
+    src/engine/stbd_engine_container.cpp
+    include/propulsion/thruster_gauge_widget.h
+    src/propulsion/thruster_gauge_widget.cpp
+    include/propulsion/speed_log_widget.h
+    src/propulsion/speed_log_widget.cpp
+    include/propulsion/propulsion_panel_widget.h
+    src/propulsion/propulsion_panel_widget.cpp
+    include/dashboard.h
+    src/dash_board.cpp
+    src/backend/mqttclient.cpp
+    src/backend/ruddercontroller.cpp
+    # src/backend/testmqttclient.cpp
+    include/backend/mqttclient.h
+    include/backend/ruddercontroller.h
+    # include/backend/testmqttclient.h
+    include/main_window.h
+    src/main_window.cpp
+    include/wave_config_dialog.h
+    src/wave_config_dialog.cpp
+    include/backend/waveconfig.h
+    main.qrc
+
+)
+
+# 链接 QtWidgets 库
+target_link_libraries(DashBoard PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(DashBoard PUBLIC
+    Qt::Core
+    Qt::Mqtt
+    Qt::Network
+    SDL2::SDL2
+    Qt::Svg
+)
+
+# 设置属性
+set_target_properties(DashBoard PROPERTIES
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
+
+# Qt6 finalize
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(DashBoard)
+endif()

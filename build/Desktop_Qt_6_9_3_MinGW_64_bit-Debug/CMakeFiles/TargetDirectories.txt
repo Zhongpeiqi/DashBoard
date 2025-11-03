@@ -1,0 +1,5 @@
+D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/DashBoard.dir
+D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/DashBoard_autogen_timestamp_deps.dir
+D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/DashBoard_autogen.dir
