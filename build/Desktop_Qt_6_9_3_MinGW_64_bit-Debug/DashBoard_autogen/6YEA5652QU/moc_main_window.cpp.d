@@ -1,6 +1,7 @@
 D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoard_autogen/6YEA5652QU/moc_main_window.cpp: D:/Project/qtProject/DashBoard/include/main_window.h \
   D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoard_autogen/moc_predefs.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QJsonObject \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMap \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q17memory.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q20functional.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q20iterator.h \

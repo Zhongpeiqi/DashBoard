@@ -13,6 +13,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QJsonDocument \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QJsonObject \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QList \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMap \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMetaObject \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMetaType \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMutex \

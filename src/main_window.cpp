@@ -54,12 +54,13 @@ MainWindow::MainWindow(QWidget* parent)
         manualBtn_ = new QPushButton("MANUAL", topBar);
         manualBtn_->setFixedSize(80, 30);
         manualBtn_->setCheckable(true);
+        manualBtn_->setChecked(true);// 默认MANUAL
 
         // STOP按钮
         stopBtn_ = new QPushButton("STOP", topBar);
         stopBtn_->setFixedSize(80, 30);
         stopBtn_->setCheckable(true);
-        stopBtn_->setChecked(true); // 默认选中STOP
+        // stopBtn_->setChecked(true);
 
         // 设置按钮样式
         QString buttonStyle = R"(
@@ -153,7 +154,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     // ========== 状态栏 ==========
     statusBar()->setStyleSheet("background-color: #888888");
-    statusBar()->showMessage("系统已启动，当前控制船只: boat1，控制状态: STOP");
+    statusBar()->showMessage("系统已启动，当前控制船只: boat1，控制状态: MANUAL");
 
     currentBoat_ = "boat1";
     emit sendBoatSelectionToMqtt(currentBoat_);
@@ -170,58 +171,92 @@ MainWindow::MainWindow(QWidget* parent)
 
 void MainWindow::onAutoClicked()
 {
-    if (currentControlStatus_ == "AUTO") return;
-
-    // 设置按钮状态
     autoBtn_->setChecked(true);
     manualBtn_->setChecked(false);
     stopBtn_->setChecked(false);
 
     currentControlStatus_ = "AUTO";
 
+    // 立即更新当前船只的控制状态
+    saveCurrentBoatControlState();
+
     QString msg = tr("控制模式切换为: AUTO");
     statusBar()->showMessage(msg);
     qDebug() << "[CONTROL]" << msg;
 
-    // 发送控制状态到MQTT
     emit sendControlStatusToMqtt(currentControlStatus_);
 }
 
 void MainWindow::onManualClicked()
 {
-    if (currentControlStatus_ == "MANUAL") return;
-
-    // 设置按钮状态
     autoBtn_->setChecked(false);
     manualBtn_->setChecked(true);
     stopBtn_->setChecked(false);
 
     currentControlStatus_ = "MANUAL";
 
+    // 立即更新当前船只的控制状态
+    saveCurrentBoatControlState();
+
     QString msg = tr("控制模式切换为: MANUAL");
     statusBar()->showMessage(msg);
     qDebug() << "[CONTROL]" << msg;
 
-    // 发送控制状态到MQTT
     emit sendControlStatusToMqtt(currentControlStatus_);
 }
 
+// ========== 船只控制状态管理 ==========
+
+void MainWindow::saveCurrentBoatControlState()
+{
+    if (!currentBoat_.isEmpty()) {
+        boatControlStates_[currentBoat_] = currentControlStatus_;
+        qDebug() << "[STATE] 保存船只控制状态:" << currentBoat_
+                 << "控制状态:" << currentControlStatus_;
+    }
+}
+
+void MainWindow::restoreBoatControlState(const QString& boatName)
+{
+    if (boatControlStates_.contains(boatName)) {
+        currentControlStatus_ = boatControlStates_[boatName];
+
+        // 恢复控制按钮状态
+        autoBtn_->setChecked(currentControlStatus_ == "AUTO");
+        manualBtn_->setChecked(currentControlStatus_ == "MANUAL");
+        stopBtn_->setChecked(currentControlStatus_ == "STOP");
+
+        qDebug() << "[STATE] 恢复船只控制状态:" << boatName
+                 << "控制状态:" << currentControlStatus_;
+    } else {
+        // 如果船只不存在，使用默认状态
+        currentControlStatus_ = "MANUAL";
+        autoBtn_->setChecked(false);
+        manualBtn_->setChecked(true);
+        stopBtn_->setChecked(false);
+
+        boatControlStates_[boatName] = currentControlStatus_; // 添加到映射表
+
+        qDebug() << "[STATE] 使用默认控制状态:" << boatName;
+    }
+}
+
+
 void MainWindow::onStopClicked()
 {
-    if (currentControlStatus_ == "STOP") return;
-
-    // 设置按钮状态
     autoBtn_->setChecked(false);
     manualBtn_->setChecked(false);
     stopBtn_->setChecked(true);
 
     currentControlStatus_ = "STOP";
 
+    // 立即更新当前船只的控制状态
+    saveCurrentBoatControlState();
+
     QString msg = tr("控制模式切换为: STOP");
     statusBar()->showMessage(msg);
     qDebug() << "[CONTROL]" << msg;
 
-    // 发送控制状态到MQTT
     emit sendControlStatusToMqtt(currentControlStatus_);
 }
 
@@ -230,13 +265,23 @@ void MainWindow::onStopClicked()
  */
 void MainWindow::onBoatChanged(const QString& name)
 {
-    currentBoat_ = name;  // 更新当前船只变量
-    QString msg = tr("当前选择船只: %1").arg(name);
+    // 保存当前船只的控制状态
+    saveCurrentBoatControlState();
+
+    // 切换到新船只
+    currentBoat_ = name;
+    restoreBoatControlState(name);
+
+    QString msg = tr("切换船只: %1, 控制模式: %2")
+                     .arg(name)
+                     .arg(currentControlStatus_);
     statusBar()->showMessage(msg);
     qDebug() << "[INFO]" << msg;
 
-    // TODO: 将当前选中船只发送给服务器
+    // 发送状态到MQTT
     emit sendBoatSelectionToMqtt(name);
+    emit sendControlStatusToMqtt(currentControlStatus_);
+
 }
 
 /**

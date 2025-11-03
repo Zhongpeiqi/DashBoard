@@ -3028,6 +3028,7 @@ D:/Project/qtProject/DashBoard/include/engine/stbd_engine_container.h
 D:/Project/qtProject/DashBoard/include/main_window.h
  mmc:Q_OBJECT
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QJsonObject
+ mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMap
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q17memory.h
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q20functional.h
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q20iterator.h
@@ -6541,6 +6542,7 @@ D:/Project/qtProject/DashBoard/src/main.cpp
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QJsonDocument
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QJsonObject
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QList
+ mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMap
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMetaObject
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMetaType
  mdp:D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QMutex
