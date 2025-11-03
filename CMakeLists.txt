@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(DashBoard VERSION 0.1 LANGUAGES CXX)
-
+#123
 # Qt 自动功能
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
