@@ -48,6 +48,8 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "boatName",
         "sendControlStatusToMqtt",
         "status",
+        "boatChanged",
+        "showVideoWindowRequested",
         "onBoatChanged",
         "name",
         "onOpenWaveConfig",
@@ -56,7 +58,8 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "config",
         "onAutoClicked",
         "onManualClicked",
-        "onStopClicked"
+        "onStopClicked",
+        "onShowVideoClicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -72,26 +75,34 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SignalData<void(const QString &)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 8 },
         }}),
+        // Signal 'boatChanged'
+        QtMocHelpers::SignalData<void(const QString &)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 6 },
+        }}),
+        // Signal 'showVideoWindowRequested'
+        QtMocHelpers::SignalData<void()>(10, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'onBoatChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 10 },
+        QtMocHelpers::SlotData<void(const QString &)>(11, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 12 },
         }}),
         // Slot 'onOpenWaveConfig'
-        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'onWaveConfigChanged'
-        QtMocHelpers::SlotData<void(const WaveConfig &)>(12, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(const WaveConfig &)>(14, 2, QMC::AccessPublic, QMetaType::Void, {{
             { 0x80000000 | 3, 4 },
         }}),
         // Slot 'onWaveConfigPublished'
-        QtMocHelpers::SlotData<void(const WaveConfig &)>(13, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { 0x80000000 | 3, 14 },
+        QtMocHelpers::SlotData<void(const WaveConfig &)>(15, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 16 },
         }}),
         // Slot 'onAutoClicked'
-        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPublic, QMetaType::Void),
-        // Slot 'onManualClicked'
-        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPublic, QMetaType::Void),
-        // Slot 'onStopClicked'
         QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'onManualClicked'
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'onStopClicked'
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'onShowVideoClicked'
+        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -118,13 +129,16 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->sendWaveConfigToMqtt((*reinterpret_cast< std::add_pointer_t<WaveConfig>>(_a[1]))); break;
         case 1: _t->sendBoatSelectionToMqtt((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->sendControlStatusToMqtt((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 3: _t->onBoatChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->onOpenWaveConfig(); break;
-        case 5: _t->onWaveConfigChanged((*reinterpret_cast< std::add_pointer_t<WaveConfig>>(_a[1]))); break;
-        case 6: _t->onWaveConfigPublished((*reinterpret_cast< std::add_pointer_t<WaveConfig>>(_a[1]))); break;
-        case 7: _t->onAutoClicked(); break;
-        case 8: _t->onManualClicked(); break;
-        case 9: _t->onStopClicked(); break;
+        case 3: _t->boatChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->showVideoWindowRequested(); break;
+        case 5: _t->onBoatChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->onOpenWaveConfig(); break;
+        case 7: _t->onWaveConfigChanged((*reinterpret_cast< std::add_pointer_t<WaveConfig>>(_a[1]))); break;
+        case 8: _t->onWaveConfigPublished((*reinterpret_cast< std::add_pointer_t<WaveConfig>>(_a[1]))); break;
+        case 9: _t->onAutoClicked(); break;
+        case 10: _t->onManualClicked(); break;
+        case 11: _t->onStopClicked(); break;
+        case 12: _t->onShowVideoClicked(); break;
         default: ;
         }
     }
@@ -134,6 +148,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         if (QtMocHelpers::indexOfMethod<void (MainWindow::*)(const QString & )>(_a, &MainWindow::sendBoatSelectionToMqtt, 1))
             return;
         if (QtMocHelpers::indexOfMethod<void (MainWindow::*)(const QString & )>(_a, &MainWindow::sendControlStatusToMqtt, 2))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (MainWindow::*)(const QString & )>(_a, &MainWindow::boatChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (MainWindow::*)()>(_a, &MainWindow::showVideoWindowRequested, 4))
             return;
     }
 }
@@ -157,14 +175,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 13;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        _id -= 13;
     }
     return _id;
 }
@@ -185,5 +203,17 @@ void MainWindow::sendBoatSelectionToMqtt(const QString & _t1)
 void MainWindow::sendControlStatusToMqtt(const QString & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 2, nullptr, _t1);
+}
+
+// SIGNAL 3
+void MainWindow::boatChanged(const QString & _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
+}
+
+// SIGNAL 4
+void MainWindow::showVideoWindowRequested()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
 }
 QT_WARNING_POP

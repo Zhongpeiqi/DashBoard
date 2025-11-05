@@ -32,6 +32,8 @@ signals:
     void sendWaveConfigToMqtt(const WaveConfig& cfg);   // 风浪参数更新
     void sendBoatSelectionToMqtt(const QString& boatName); // 当前船只选择变化
     void sendControlStatusToMqtt(const QString& status); // 控制状态更新
+    void boatChanged(const QString& boatName); // 船只切换信号，用于通知视频窗口
+    void showVideoWindowRequested(); // 请求显示视频窗口信号
 
 public slots:
     void onBoatChanged(const QString& name);          // 当切换船只时触发
@@ -42,6 +44,7 @@ public slots:
     void onAutoClicked();
     void onManualClicked();
     void onStopClicked();
+    void onShowVideoClicked();                        // 显示视频窗口按钮槽函数
 
 private:
     // 保存和恢复船只控制状态
@@ -54,6 +57,7 @@ private:
 
     QComboBox* boatSelector_;     // 下拉框组件
     QPushButton* waveConfigBtn_;  // 波浪配置对话框按钮
+    QPushButton* videoWindowBtn_; // 视频窗口按钮
     QPushButton* autoBtn_;        // AUTO按钮
     QPushButton* manualBtn_;      // MANUAL按钮
     QPushButton* stopBtn_;        // STOP按钮

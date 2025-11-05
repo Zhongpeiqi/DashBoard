@@ -367,6 +367,23 @@
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6SvgPrivate/Qt6SvgPrivateAdditionalTargetInfo.cmake",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6SvgPrivate/Qt6SvgPrivateVersionlessAliasTargets.cmake",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Svg/Qt6SvgVersionlessAliasTargets.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentConfigVersion.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentConfigVersionImpl.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentConfig.cmake",
+		"D:/EnviromentConf/qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentDependencies.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentTargets.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentTargets-relwithdebinfo.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentAdditionalTargetInfo.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateConfigVersion.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateConfigVersionImpl.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateConfig.cmake",
+		"D:/EnviromentConf/qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateDependencies.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateTargets.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateAdditionalTargetInfo.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateVersionlessAliasTargets.cmake",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6Concurrent/Qt6ConcurrentVersionlessAliasTargets.cmake",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -421,6 +438,12 @@
 	"DEP_FILE_RULE_NAME" : "DashBoard_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[
+			"D:/Project/qtProject/DashBoard/include/backend/ffmpegdecoder.h",
+			"MU",
+			"NHSO4IKFBR/moc_ffmpegdecoder.cpp",
+			null
+		],
 		[
 			"D:/Project/qtProject/DashBoard/include/backend/mqttclient.h",
 			"MU",
@@ -506,6 +529,18 @@
 			null
 		],
 		[
+			"D:/Project/qtProject/DashBoard/include/video/video_player_widget.h",
+			"MU",
+			"BU77NEL2U3/moc_video_player_widget.cpp",
+			null
+		],
+		[
+			"D:/Project/qtProject/DashBoard/include/video/video_player_window.h",
+			"MU",
+			"BU77NEL2U3/moc_video_player_window.cpp",
+			null
+		],
+		[
 			"D:/Project/qtProject/DashBoard/include/wave_config_dialog.h",
 			"MU",
 			"6YEA5652QU/moc_wave_config_dialog.cpp",
@@ -536,6 +571,7 @@
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
+		"QT_CONCURRENT_LIB",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
 		"QT_MQTT_LIB",
@@ -559,6 +595,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"D:/Project/qtProject/vlctest/ffmpeg/include",
 		"D:/Project/qtProject/DashBoard/include",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/include",
@@ -568,6 +605,7 @@
 		"D:/Downloads/qtmqtt/build/Desktop_Qt_6_9_3_MinGW_64_bit-Release/include",
 		"D:/Downloads/qtmqtt/build/Desktop_Qt_6_9_3_MinGW_64_bit-Release/include/QtMqtt",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtNetwork",
+		"D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtConcurrent",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/include/SDL2",
 		"D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtSvg",
 		"D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
@@ -610,6 +648,11 @@
 	"SETTINGS_FILE" : "D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/CMakeFiles/DashBoard_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"D:/Project/qtProject/DashBoard/src/backend/ffmpegdecoder.cpp",
+			"MU",
+			null
+		],
 		[
 			"D:/Project/qtProject/DashBoard/src/backend/mqttclient.cpp",
 			"MU",
@@ -665,6 +708,16 @@
 		],
 		[
 			"D:/Project/qtProject/DashBoard/src/propulsion/thruster_gauge_widget.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/Project/qtProject/DashBoard/src/video/video_player_widget.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/Project/qtProject/DashBoard/src/video/video_player_window.cpp",
 			"MU",
 			null
 		],

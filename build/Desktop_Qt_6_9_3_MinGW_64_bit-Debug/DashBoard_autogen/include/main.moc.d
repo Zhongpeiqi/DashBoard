@@ -5,6 +5,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/Downloads/qtmqtt/build/Desktop_Qt_6_9_3_MinGW_64_bit-Release/include/QtMqtt/qtmqttexports.h \
   D:/Downloads/qtmqtt/src/mqtt/qmqttclient.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QDateTime \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QDeadlineTimer \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QDebug \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QExplicitlySharedDataPointer \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QFlags \
@@ -27,6 +28,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QThread \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QTimer \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QVector \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/QWaitCondition \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q17memory.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q20functional.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/q20iterator.h \
@@ -179,8 +181,10 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/qvarlengtharray.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/qvector.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/qversiontagging.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/qwaitcondition.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/qxptype_traits.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtCore/qyieldcpu.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/QImage \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qaction.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qbitmap.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qbrush.h \
@@ -198,6 +202,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qkeysequence.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qpaintdevice.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qpalette.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qpen.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qpicture.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qpixelformat.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qpixmap.h \
@@ -205,7 +210,10 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qregion.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qrgb.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qrgba64.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtextcursor.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtextdocument.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtextformat.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtextoption.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtgui-config.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtguiexports.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtGui/qtguiglobal.h \
@@ -246,9 +254,11 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QGroupBox \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QHBoxLayout \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QLabel \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QLineEdit \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QMainWindow \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QPushButton \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QSlider \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QVBoxLayout \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/QWidget \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qabstractbutton.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -265,6 +275,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qlabel.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qlayout.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+  D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qlineedit.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qmainwindow.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qpushbutton.h \
   D:/EnviromentConf/qt/6.9.3/mingw_64/include/QtWidgets/qrubberband.h \
@@ -504,6 +515,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
   D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
   D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
+  D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/math.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
   D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
   D:/EnviromentConf/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
@@ -630,6 +642,7 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ctype.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/errno.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/intrin.h \
+  D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/inttypes.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/locale.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/malloc.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/process.h \
@@ -657,9 +670,49 @@ D:/Project/qtProject/DashBoard/build/Desktop_Qt_6_9_3_MinGW_64_bit-Debug/DashBoa
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winapifamily.h \
   D:/EnviromentConf/qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/winsdkver.h \
+  D:/Project/qtProject/DashBoard/include/backend/ffmpegdecoder.h \
   D:/Project/qtProject/DashBoard/include/backend/mqttclient.h \
   D:/Project/qtProject/DashBoard/include/backend/ruddercontroller.h \
   D:/Project/qtProject/DashBoard/include/backend/waveconfig.h \
   D:/Project/qtProject/DashBoard/include/dashboard.h \
   D:/Project/qtProject/DashBoard/include/main_window.h \
-  D:/Project/qtProject/DashBoard/include/wave_config_dialog.h
+  D:/Project/qtProject/DashBoard/include/video/video_player_widget.h \
+  D:/Project/qtProject/DashBoard/include/video/video_player_window.h \
+  D:/Project/qtProject/DashBoard/include/wave_config_dialog.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/avcodec.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/codec.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/codec_desc.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/codec_id.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/codec_par.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/defs.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/packet.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/version.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavcodec/version_major.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavformat/avformat.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavformat/avio.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavformat/version.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavformat/version_major.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/attributes.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/avconfig.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/avutil.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/buffer.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/channel_layout.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/common.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/dict.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/error.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/frame.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/hwcontext.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/imgutils.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/intfloat.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/log.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/macros.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/mathematics.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/mem.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/pixdesc.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/pixfmt.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/rational.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/samplefmt.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libavutil/version.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libswscale/swscale.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libswscale/version.h \
+  D:/Project/qtProject/vlctest/ffmpeg/include/libswscale/version_major.h

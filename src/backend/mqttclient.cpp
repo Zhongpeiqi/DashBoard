@@ -137,7 +137,7 @@ void MqttClient::subscribeToTopic(const QString &topic)
         case QMqttSubscription::Error: stateStr = "订阅错误"; break;
         default: stateStr = "未知状态"; break;
         }
-        qDebug() << "主题" << topic << "订阅状态:" << stateStr;
+        // qDebug() << "主题" << topic << "订阅状态:" << stateStr;
     });
 }
 
@@ -290,7 +290,7 @@ void MqttClient::onMessageReceived(const QByteArray &message, const QMqttTopicNa
                              .arg(topic.name())
                              .arg(QString::fromUtf8(message));
 
-    qDebug().noquote() << logMessage;
+    // qDebug().noquote() << logMessage;
 
     // 发射原始消息信号，通知其他对象"有新的MQTT消息到达了"
     emit messageReceived(topic.name(), message);

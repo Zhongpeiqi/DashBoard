@@ -11,9 +11,19 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# 设置FFmpeg的路径（请根据您的实际路径修改）
+set(FFMPEG_DIR "D:/Project/qtProject/vlctest/ffmpeg")  # 假设FFmpeg内容放在项目内的ffmpeg文件夹
+
+# 添加FFmpeg头文件路径
+include_directories(${FFMPEG_DIR}/include)
+
+# 添加FFmpeg库文件路径
+link_directories(${FFMPEG_DIR}/lib)
+
+
 # 查找 Qt
 # find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Mqtt Network Widgets Mqtt)
-find_package(Qt6 REQUIRED COMPONENTS Core Mqtt Network Widgets Svg)
+find_package(Qt6 REQUIRED COMPONENTS Core Mqtt Network Widgets Svg Concurrent)
 find_package(SDL2 REQUIRED)
 
 # 包含头文件路径（让 #include <wind/wind_rose_widget.h> 可用）
@@ -65,6 +75,12 @@ qt_add_executable(DashBoard
     include/wave_config_dialog.h
     src/wave_config_dialog.cpp
     include/backend/waveconfig.h
+    include/backend/ffmpegdecoder.h
+    src/backend/ffmpegdecoder.cpp
+    include/video/video_player_widget.h
+    src/video/video_player_widget.cpp
+    include/video/video_player_window.h
+    src/video/video_player_window.cpp
     main.qrc
 
 )
@@ -75,8 +91,14 @@ target_link_libraries(DashBoard PUBLIC
     Qt::Core
     Qt::Mqtt
     Qt::Network
+    Qt::Concurrent
     SDL2::SDL2
     Qt::Svg
+    # 链接FFmpeg核心库（链接器会根据名称找到lib目录下的对应库文件）
+    avcodec
+    avformat
+    avutil
+    swscale
 )
 
 # 设置属性

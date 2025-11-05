@@ -121,6 +121,33 @@ MainWindow::MainWindow(QWidget* parent)
     connect(waveConfigBtn_, &QPushButton::clicked,
             this, &MainWindow::onOpenWaveConfig);
 
+    // =========================================
+    //  显示视频窗口按钮
+    // =========================================
+    videoWindowBtn_ = new QPushButton("📹 视频", topBar);
+    videoWindowBtn_->setFixedHeight(32);
+    videoWindowBtn_->setStyleSheet(R"(
+        QPushButton {
+            background-color: white;
+            color: black;
+            font-size: 14px;
+            border: 1px solid #888;
+            border-radius: 4px;
+            padding: 4px 12px;
+        }
+        QPushButton:hover {
+            background-color: #0078d7;
+            color: white;
+        }
+        QPushButton:disabled {
+            background-color: #f0f0f0;
+            color: #888;
+        }
+    )");
+
+    connect(videoWindowBtn_, &QPushButton::clicked,
+            this, &MainWindow::onShowVideoClicked);
+
     // 布局管理
         topLayout->addWidget(boatLabel);
         topLayout->addWidget(boatSelector_);
@@ -129,6 +156,7 @@ MainWindow::MainWindow(QWidget* parent)
         topLayout->addWidget(manualBtn_);
         topLayout->addWidget(stopBtn_);
         topLayout->addStretch();
+        topLayout->addWidget(videoWindowBtn_);
         topLayout->addWidget(waveConfigBtn_);
         topBar->setLayout(topLayout);
 
@@ -282,6 +310,8 @@ void MainWindow::onBoatChanged(const QString& name)
     emit sendBoatSelectionToMqtt(name);
     emit sendControlStatusToMqtt(currentControlStatus_);
 
+    // 发送信号通知视频窗口切换船只（如果需要）
+    emit boatChanged(name);
 }
 
 /**
@@ -373,4 +403,12 @@ void MainWindow::onWaveConfigPublished(const WaveConfig& config)
     QString msg = tr("波浪配置已发送到船只: %1").arg(currentBoat_);
     statusBar()->showMessage(msg);
     qDebug() << "[MQTT] 波浪配置发布成功:" << msg;
+}
+
+/**
+ * @brief 显示视频窗口按钮槽函数
+ */
+void MainWindow::onShowVideoClicked()
+{
+    emit showVideoWindowRequested();
 }

@@ -13,6 +13,7 @@
 #include "backend/ruddercontroller.h"
 #include "main_window.h"
 #include <SDL2/SDL.h>
+#include "video/video_player_window.h"
 
 class ControllerBridge : public QObject
 {
@@ -62,6 +63,11 @@ public:
 private slots:
     void onRudderUpdated(const RudderState &state)
     {
+        // 仅在 MANUAL 模式下才转发摇杆控制到服务器
+        if (m_mode != Mode::Manual) {
+            return;
+        }
+
         // 将摇杆数据映射到推力器控制参数
         double leftThrust = mapAxisToThrust(state.leftY);
         double rightThrust = mapAxisToThrust(state.rightY);
@@ -74,7 +80,7 @@ private slots:
         }
 
         // 调试输出（每20次输出一次以减少日志）
-        static int debugCounter = 0;
+        // static int debugCounter = 0;
         // if (debugCounter++ % 20 == 0) {
         //     QString timestamp = QDateTime::currentDateTime().toString("hh:mm:ss.zzz");
         //     qDebug().noquote() << QString("[%1] 摇杆: LX:%2 LY:%3 RX:%4 RY:%5")
@@ -116,7 +122,32 @@ private slots:
         }
     }
 
+public slots:
+    void onControlStatusChanged(const QString &status)
+    {
+        // 期望状态："AUTO" / "MANUAL" / "STOP"
+        if (status == "AUTO") {
+            m_mode = Mode::Auto;
+        } else if (status == "MANUAL") {
+            m_mode = Mode::Manual;
+        } else if (status == "STOP") {
+            m_mode = Mode::Stop;
+            // 立即下发归零指令一次
+            sendZeroThrusters();
+        }
+        qDebug() << "控制模式切换:" << status;
+    }
+
 private:
+    enum class Mode { Manual, Auto, Stop };
+
+    void sendZeroThrusters()
+    {
+        if (m_mqttClient && m_mqttClient->isConnected()) {
+            m_mqttClient->publishThrusters(0.0, 0.0, 0.0, 0.0);
+        }
+    }
+
     // 将摇杆轴值映射到推力范围 [-1000, 1000]
     double mapAxisToThrust(float axisValue)
     {
@@ -164,6 +195,7 @@ private:
     MqttClient *m_mqttClient;        // 使用外部传入的MQTT客户端
     RudderController *m_rudderController;
     MainWindow *m_mainWindow = nullptr;
+    Mode m_mode = Mode::Manual;
 };
 
 class SensorDataBridge : public QObject
@@ -463,9 +495,44 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    // 创建主窗口（仪表盘）
     MainWindow w;
     w.setWindowTitle("Ship Dashboard Control Center - Real Data Mode");
     w.show();
+    
+    // 等待窗口显示后再获取位置
+    QApplication::processEvents();
+
+    // 创建独立的视频播放窗口（初始不显示）
+    VideoPlayerWindow *videoWindow = new VideoPlayerWindow();
+    videoWindow->setWindowTitle("船舶摄像头监控系统");
+    
+    // 初始化视频窗口显示当前船只的摄像头
+    videoWindow->setCurrentBoat("boat1");
+    
+    // 连接主窗口的显示视频按钮信号，控制视频窗口的显示
+    QObject::connect(&w, &MainWindow::showVideoWindowRequested, [&w, videoWindow]() {
+        if (videoWindow->isVisible()) {
+            videoWindow->hide();
+        } else {
+            // 设置视频窗口位置在主窗口右侧
+            QRect mainGeometry = w.geometry();
+            if (mainGeometry.width() > 0) {
+                videoWindow->setGeometry(mainGeometry.right() + 20, mainGeometry.top(), 800, 600);
+            } else {
+                // 如果主窗口位置不可用，使用默认位置
+                videoWindow->setGeometry(1650, 100, 800, 600);
+            }
+            videoWindow->show();
+            videoWindow->raise(); // 将窗口置于最前
+            videoWindow->activateWindow(); // 激活窗口
+        }
+    });
+    
+    // 连接视频窗口关闭信号（当用户点击关闭按钮时）
+    QObject::connect(videoWindow, &VideoPlayerWindow::windowClosed, [videoWindow]() {
+        videoWindow->hide();
+    });
 
     // 创建MQTT客户端实例
     MqttClient* mqttClient = new MqttClient(&app);
@@ -483,6 +550,10 @@ int main(int argc, char *argv[])
     QObject::connect(&w, &MainWindow::sendBoatSelectionToMqtt,
                      mqttClient, &MqttClient::setCurrentBoat);
 
+    // 连接主窗口的船只切换信号到视频窗口，实现自动切换摄像头
+    QObject::connect(&w, &MainWindow::boatChanged,
+                     videoWindow, &VideoPlayerWindow::setCurrentBoat);
+
     // +++ 修复：添加调试输出，确保信号连接正确 +++
     // qDebug() << "开始连接波浪配置信号...";
 
@@ -498,6 +569,10 @@ int main(int argc, char *argv[])
     // +++ 新增：连接控制状态信号 +++
     QObject::connect(&w, &MainWindow::sendControlStatusToMqtt,
                         mqttClient, &MqttClient::publishControlStatus);
+
+    // 将控制状态变化通知控制器桥接器，用于开关手柄数据转发
+    QObject::connect(&w, &MainWindow::sendControlStatusToMqtt,
+                     &controllerBridge, &ControllerBridge::onControlStatusChanged);
 
     int result = app.exec();
     qDebug() << "应用程序退出，返回码:" << result;
